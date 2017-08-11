@@ -48,13 +48,18 @@ function getServedPath(appPackageJson) {
   return ensureSlash(servedUrl, true);
 }
 
+// Detect appIndexFile base on REACT_APP env
+const appIndexFile = process.env.REACT_APP
+  ? process.env.REACT_APP + 'Index'
+  : 'index';
+
 // config after eject: we're in ./config/
 module.exports = {
   dotenv: resolveApp('.env'),
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
+  appIndexJs: resolveApp('src/' + appIndexFile + '.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
@@ -74,7 +79,7 @@ module.exports = {
   appBuild: resolveApp('build'),
   appPublic: resolveApp('public'),
   appHtml: resolveApp('public/index.html'),
-  appIndexJs: resolveApp('src/index.js'),
+  appIndexJs: resolveApp('src/' + appIndexFile + '.js'),
   appPackageJson: resolveApp('package.json'),
   appSrc: resolveApp('src'),
   yarnLockFile: resolveApp('yarn.lock'),
@@ -104,7 +109,7 @@ if (
     appBuild: resolveOwn('../../build'),
     appPublic: resolveOwn('template/public'),
     appHtml: resolveOwn('template/public/index.html'),
-    appIndexJs: resolveOwn('template/src/index.js'),
+    appIndexJs: resolveOwn('template/src/' + appIndexFile + '.js'),
     appPackageJson: resolveOwn('package.json'),
     appSrc: resolveOwn('template/src'),
     yarnLockFile: resolveOwn('template/yarn.lock'),
