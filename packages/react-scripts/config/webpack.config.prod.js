@@ -178,6 +178,14 @@ module.exports = {
               // @remove-on-eject-begin
               babelrc: false,
               presets: [require.resolve('babel-preset-react-app')],
+              plugins: [
+                require.resolve('babel-plugin-lodash'),
+                require.resolve('babel-plugin-recharts'),
+                [
+                  require.resolve('babel-plugin-import'),
+                  { libraryName: 'antd', style: 'css' },
+                ],
+              ],
               // @remove-on-eject-end
               compact: true,
             },

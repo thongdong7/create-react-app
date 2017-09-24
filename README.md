@@ -1,3 +1,12 @@
+# Custom react-scripts
+
+Features:
+
+* Multiple apps support (customized entry point)
+* babel-plugin-import (for antd)
+* babel-plugin-lodash
+* babel-plugin-recharts
+
 # Create React App [![Build Status](https://travis-ci.org/facebookincubator/create-react-app.svg?branch=master)](https://travis-ci.org/facebookincubator/create-react-app)
 
 Create React apps with no build configuration.
